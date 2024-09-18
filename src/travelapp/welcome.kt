@@ -1,4 +1,0 @@
-package travelapp
-
-class welcome {
-}

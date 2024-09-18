@@ -14,11 +14,11 @@ class PhotosView {
         photosLayout.padding = Insets(15.0)
 
         // Ejemplo de imágenes con descripciones
-        val image1 = Image("file:resources/photo1.jpg")
+        val image1 = Image("./resources/photosView/medellin1.jpeg")
         val imageView1 = ImageView(image1)
         val description1 = Label("Descripción de la Foto 1")
 
-        val image2 = Image("file:resources/photo2.jpg")
+        val image2 = Image("./resources/photosView/medellin2.jpeg")
         val imageView2 = ImageView(image2)
         val description2 = Label("Descripción de la Foto 2")
 

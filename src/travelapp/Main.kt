@@ -53,11 +53,11 @@ class TravelApp : Application() {
         }
 
         videoButton.setOnAction {
-            //mainLayout.center = videoView.getVideoView()  // Cambiar a la vista de video
+            mainLayout.center = videoView.getVideoView()  // Cambiar a la vista de video
         }
 
         webButton.setOnAction {
-            //mainLayout.center = webView.getWebView()  // Cambiar a la vista web
+            mainLayout.center = webView.getWebView()  // Cambiar a la vista web
         }
 
         // Crear la escena y asignarla al stage

@@ -15,4 +15,25 @@
     <string name="menu_video">Video</string>
     <string name="menu_web">Web</string>
     <string name="menu_welcome">Home</string>
+    <string name="profile">Profile</string>
+    <string name="name_profile">Carl Toon</string>
+    <string name="about">About</string>
+    <string name="bio">Apasionado por explorar el mundo, siempre en busca de nuevas aventuras. Desde escalar montañas en
+        los Andes hasta perderme en las calles de ciudades antiguas, cada viaje es una oportunidad para descubrir
+        culturas y crear recuerdos inolvidables. ¡La próxima aventura me espera!\"
+    </string>
+    <string name="user_information">User Information</string>
+    <string name="username_">Username</string>
+    <string name="carltoon">carltoon1998</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="age">Age</string>
+    <string name="_21">21</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="_17_12_1998">17/12/1998</string>
+    <string name="mobile">Mobile</string>
+    <string name="_57_3001239876">+57 3001239876</string>
+    <string name="email">Email</string>
+    <string name="axxxxxxa_gmail_com">axxxxxxa@gmail.com</string>
+    <string name="social_media">Social Media</string>
 </resources>

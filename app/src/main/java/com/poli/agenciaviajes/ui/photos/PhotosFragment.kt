@@ -25,7 +25,6 @@ class PhotosFragment : Fragment() {
 
         val photosViewModel = ViewModelProvider(this@PhotosFragment).get(PhotosViewModel::class.java)
 
-
         setupRecyclerView()
 
         // Observa los cambios en el LiveData del ViewModel y actualiza la lista del adapter.
@@ -37,20 +36,16 @@ class PhotosFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        photosAdapter = PhotosAdapter { description ->
-            binding.descriptionText.text = description
-            binding.descriptionText.visibility = View.VISIBLE
-        }
-
+        photosAdapter = PhotosAdapter()
         binding.photosList.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = photosAdapter
         }
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
-        // Limpia el binding cuando la vista se destruye para evitar fugas de memoria.
         _binding = null
     }
 }

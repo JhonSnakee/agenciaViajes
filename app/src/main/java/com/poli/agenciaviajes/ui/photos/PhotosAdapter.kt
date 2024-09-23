@@ -1,34 +1,52 @@
 package com.poli.agenciaviajes.ui.photos
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.poli.agenciaviajes.databinding.ItemPhotoBinding
-import com.squareup.picasso.Picasso // Asegúrate de importar Picasso
+import com.squareup.picasso.Picasso
 
-class PhotosAdapter(private val onClick: (String) -> Unit) : RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
-    private var data: List<Photo> = listOf()
+class PhotosAdapter(private var photos: MutableList<Photo> = mutableListOf()) : RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
+    private var lastSelectedPosition: Int = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         val binding = ItemPhotoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PhotoViewHolder(binding, onClick)
+        return PhotoViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(photos[position], position)
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = photos.size
 
-    fun submitList(photos: List<Photo>) {
-        data = photos
+    fun submitList(newPhotos: List<Photo>) {
+        photos.clear()
+        photos.addAll(newPhotos)
         notifyDataSetChanged()
     }
 
-    class PhotoViewHolder(private val binding: ItemPhotoBinding, private val onClick: (String) -> Unit) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(photo: Photo) {
+    inner class PhotoViewHolder(private val binding: ItemPhotoBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(photo: Photo, position: Int) {
             Picasso.get().load(photo.imageUrl).into(binding.imageView)
-            binding.root.setOnClickListener { onClick(photo.description) }
+            binding.descriptionTextView.text = photo.description
+            binding.descriptionTextView.visibility = if (photo.isDescriptionVisible) View.VISIBLE else View.GONE
+
+            binding.root.setOnClickListener {
+                // Toggle the visibility of the current item's description
+                val currentVisibility = photo.isDescriptionVisible
+                photo.isDescriptionVisible = !currentVisibility
+
+                notifyItemChanged(position)
+
+                // Reset the previous item's visibility
+                if (lastSelectedPosition != -1 && lastSelectedPosition != position) {
+                    photos[lastSelectedPosition].isDescriptionVisible = false
+                    notifyItemChanged(lastSelectedPosition)
+                }
+
+                lastSelectedPosition = position
+            }
         }
     }
 }
-

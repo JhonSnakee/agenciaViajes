@@ -28,9 +28,42 @@ class WebFragment : Fragment() {
         _binding = FragmentWebBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textWeb
-        webViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        class MainActivity : AppCompatActivity () {
+            private lateinit var webView: WebView
+
+            private fun webviewclient(): WebViewClient {
+                return TODO("Provide the return value")
+            }
+
+            override fun onCreate(savedInstanceState: Bundle?) {
+                super.onCreate(savedInstanceState)
+                setContentView(R.layout.activity_main)
+
+                webView = findViewById(R.id.webview)
+
+
+                webView.webViewClient = webviewclient()
+                val websettings: WebSettings= webView.settings
+                true.also { websettings.javaScriptEnabled = it }
+
+                var https = ""
+                webView.loadUrl("https://meloviajo.com/")
+
+
+
+
+            }
+
+            override fun onBackPressed() {
+                if (webView.canGoBack()) {
+                    (webView.goBack())
+                }      else{
+                    super.onBackPressed()
+
+                }
+
+            }
+
         }
         return root
     }

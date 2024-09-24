@@ -30,4 +30,9 @@
             android:name="com.poli.agenciaviajes.ui.web.WebFragment"
             android:label="@string/menu_web"
             tools:layout="@layout/fragment_web"/>
+    <fragment
+            android:id="@+id/nav_settings"
+            android:name="com.poli.agenciaviajes.ui.settings.SettingsFragment"
+            android:label="@string/menu_settings"
+            tools:layout="@layout/fragment_settings"/>
 </navigation>

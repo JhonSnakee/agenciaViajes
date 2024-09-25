@@ -4,67 +4,47 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.poli.agenciaviajes.databinding.FragmentWebBinding
 
 class WebFragment : Fragment() {
 
     private var _binding: FragmentWebBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var webView: WebView
+    private lateinit var urlInput: EditText
+    private lateinit var goButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val webViewModel =
-            ViewModelProvider(this).get(WebViewModel::class.java)
-
         _binding = FragmentWebBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        class MainActivity : AppCompatActivity () {
-            private lateinit var webView: WebView
+        // Configuración del WebView
+        webView = binding.webView
+        webView.webViewClient = WebViewClient() // Para abrir URLs dentro del WebView
+        webView.settings.javaScriptEnabled = true // Habilitar JavaScript si es necesario
 
-            private fun webviewclient(): WebViewClient {
-                return TODO("Provide the return value")
+        // Inicialización de componentes
+        urlInput = binding.urlInput
+        goButton = binding.goButton
+
+        // Manejar clic del botón "Ir"
+        goButton.setOnClickListener {
+            val url = urlInput.text.toString()
+            if (url.isNotEmpty()) {
+                webView.loadUrl(url) // Cargar la URL ingresada
             }
-
-            override fun onCreate(savedInstanceState: Bundle?) {
-                super.onCreate(savedInstanceState)
-                setContentView(R.layout.activity_main)
-
-                webView = findViewById(R.id.webview)
-
-
-                webView.webViewClient = webviewclient()
-                val websettings: WebSettings= webView.settings
-                true.also { websettings.javaScriptEnabled = it }
-
-                var https = ""
-                webView.loadUrl("https://meloviajo.com/")
-
-
-
-
-            }
-
-            override fun onBackPressed() {
-                if (webView.canGoBack()) {
-                    (webView.goBack())
-                }      else{
-                    super.onBackPressed()
-
-                }
-
-            }
-
         }
+
         return root
     }
 

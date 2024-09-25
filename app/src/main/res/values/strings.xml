@@ -44,4 +44,6 @@
     <string name="JohnatanB">- Johnatan Yair Bautista Gonzalez</string>
     <string name="carlosA">- Carlos Yecid Ascencio Cely</string>
     <string name="yonathanM">- Yonathan Molina C.</string>
+    <string name="ingrese_url">Ingrese URL</string>
+    <string name="mensaje_ayuda">Ejemplo: https://www.google.com/</string>
 </resources>

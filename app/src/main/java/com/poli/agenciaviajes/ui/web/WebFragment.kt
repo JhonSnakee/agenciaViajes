@@ -9,7 +9,6 @@ import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.poli.agenciaviajes.databinding.FragmentWebBinding
 
 class WebFragment : Fragment() {

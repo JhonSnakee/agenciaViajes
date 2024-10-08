@@ -47,4 +47,6 @@
     <string name="yonathanM">- Yonathan Molina C.</string>
     <string name="ingrese_url">Ingrese URL</string>
     <string name="mensaje_ayuda">Ejemplo: https://www.google.com/</string>
+    <string name="welcome_message">¡Bienvenido a nuestra aplicación Agencia de viajes!</string>
+    <string name="comenzar">Comenzar</string>
 </resources>

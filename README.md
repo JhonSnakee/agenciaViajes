@@ -57,5 +57,8 @@ Incluye pruebas instrumentadas y unitarias básicas en:
 
 Este proyecto es solo para fines académicos o demostrativos.
 
-## 👤 Autor
-> Desarrollado con cariño por [@JhonSnakee](https://github.com/JhonSnakee).
+---
+
+## 📬 Contacto
+
+> Desarrollado con cariño por [@JhonSnakee](https://github.com/JhonSnakee)

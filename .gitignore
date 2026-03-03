@@ -1,15 +1,82 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# =============================================================
+#  Android
+# =============================================================
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Java / Kotlin compiled output
+*.class
+
+# Log files
+*.log
+
+# Local configuration file (sdk path, etc.)
 local.properties
+
+# Android Studio — Gradle files
+.gradle/
+build/
+/captures/
+
+# Android Studio generated files & caches
+.externalNativeBuild/
+.cxx/
+
+# =============================================================
+#  IntelliJ IDEA / Android Studio
+# =============================================================
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/deploymentTargetDropDown.xml
+.idea/migrations.xml
+.idea/shelf/
+*.iml
+
+# Do NOT ignore:
+# .idea/gradle.xml   — needed so the project structure is recognized
+# .idea/runConfigurations — shared run configs (optional, keep if used)
+
+# =============================================================
+#  Kotlin
+# =============================================================
+*.kotlin_module
+
+# =============================================================
+#  OS generated files
+# =============================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# =============================================================
+#  Gradle wrapper (keep the wrapper, ignore the cache)
+# =============================================================
+# gradle/wrapper/gradle-wrapper.jar  <-- should be committed
+.gradle/
+
+# =============================================================
+#  Keystore / signing (NEVER commit these)
+# =============================================================
+*.jks
+*.keystore
+keystore.properties
+release.properties
